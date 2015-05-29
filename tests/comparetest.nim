@@ -61,5 +61,8 @@ suite "Version compare":
   test "Compare 1.1.1-rc to 1.1.1-beta and return 1 to show 1.1.1-rc is greater than 1.1.1-beta":
     check compare("1.1.1-rc", "1.1.1-beta") == 1
 
+  test "Compare 1.1.1-RC to 1.1.1-BETA and return 1 to show 1.1.1-RC is greater than 1.1.1-BETA":
+    check compare("1.1.1-RC", "1.1.1-BETA") == 1
+
   test "Compare 1.1.1-rc to 1.1.1-rc and return 0 to show 1.1.1-rc is equal to 1.1.1-rc":
     check compare("1.1.1-rc", "1.1.1-rc") == 0

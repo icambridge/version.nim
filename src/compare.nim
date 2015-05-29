@@ -23,9 +23,9 @@ proc prepareNumber(number: string): int =
   let foundNumber = number.findAll(numberPattern)
   var returnVal = 0
 
-  if number[0] == 'b':
+  if number[0].toLower == 'b':
     returnVal = -99999
-  elif number[0] == 'r':
+  elif number[0].toLower == 'r':
     returnVal = -88888
 
   if len(foundNumber) != 0:
