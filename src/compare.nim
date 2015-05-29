@@ -2,20 +2,15 @@ import strutils, re
 
 # TODO docblock
 proc compareNumbers(vOne: int, vTwo: int): int =
-
   if vOne > vTwo:
     return 1
   elif vOne == vTwo:
     return 0
-
   return -1
-
 
 proc prepareNumber(number: string): int =
   let chars = {'B','b','r','R'}
-
   let found = number.find(chars)
-
   if found == -1:
     return number.parseInt
 
@@ -38,24 +33,20 @@ proc compare*(vOne: string, vTwo: string): int =
 
   let vOneParts = vOne.split({'.','-'})
   let vTwoParts = vTwo.split({'.','-'})
-
   let oneNumOfParts = len(vOneParts)
   let twoNumOfParts = len(vTwoParts)
-
   let max = oneNumOfParts-1
 
   for i in countup(0, max):
-
     let numOne = prepareNumber(vOneParts[i])
-
     if i >= twoNumOfParts:
       if numOne < 0:
         return -1
-
-      return 1
+      elif numOne > 0:
+        return 1
+      return 0
 
     let numTwo = prepareNumber(vTwoParts[i])
-
     let compared = compareNumbers(numOne, numTwo)
 
     if compared != 0:
@@ -65,7 +56,8 @@ proc compare*(vOne: string, vTwo: string): int =
     let num = prepareNumber(vTwoParts[twoNumOfParts-1])
     if num < 0:
       return 1
-
-    return -1
+    elif num > 0:
+      return -1
+    return 0
 
   return 0

@@ -66,3 +66,9 @@ suite "Version compare":
 
   test "Compare 1.1.1-rc to 1.1.1-rc and return 0 to show 1.1.1-rc is equal to 1.1.1-rc":
     check compare("1.1.1-rc", "1.1.1-rc") == 0
+
+  test "Compare 1.1 to 1.1.0 and return 0 to show 1.1 is equal to 1.1.0":
+    check compare("1.1", "1.1.0") == 0
+
+  test "Compare 1.1.0 to 1.1 and return 0 to show 1.1.0 is equal to 1.1":
+    check compare("1.1.0", "1.1") == 0
