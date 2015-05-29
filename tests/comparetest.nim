@@ -19,6 +19,9 @@ suite "Version compare":
   test "Compare 1.1 to 1.1 and return 0 to show 1.1 is equal to 1.1":
     check compare("1.1", "1.1") == 0
 
+  test "Compare 1.1.1 to 1.1 and return 1 to show 1.1.1 is greater than to 1.1":
+    check compare("1.1.1", "1.1") == 1
+
   test "Compare 1.1.1 to 1.1.2 and return -1 to show 1.1.1 is less than 1.1.2":
     check compare("1.1.1", "1.1.2") == -1
 
